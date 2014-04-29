@@ -1,0 +1,45 @@
+import random
+import math
+global a
+a=[]
+class swordsman:
+    def __init__(self):
+        self.hp=50
+        self.ex=1
+        self.ey=1
+    def hack(self,level):
+        dmg=10*level
+        return dmg
+def main(level):
+    x1=input('Enter your x coordinate')
+    y1=input('Enter your y coordinate')
+    for i in range(math.factorial(level)):
+        x = swordsman()
+        a.append(x)
+    if(adjacence(x.ex,x.ey,x1,y1)==True):
+        attack(level)
+    else:
+        move()
+def attack(level):
+    for i in a:
+        x=random.randrange(1,7)
+        if (x==1 or x==2):
+            print('MISS')
+        elif (x==3 or x==4):
+            print('You lost ',i.hack(level)/2,' health')
+        elif(x==5 or x==6):
+            print('You lost',i.hack(level), ' health')
+def adjacence(x1,x2,y1,y2):
+    ax = math.fabs(x1-x2)
+    ay = math.fabs(y1-y2)
+
+    if(ax+ay==1):
+        return True
+def move():
+    x = random.randrange(1,4)
+    y = 3-x
+    print('Move enemy ',x,' spaces')
+    print('Move enemy ',y,' spaces')
+        
+        
+    
